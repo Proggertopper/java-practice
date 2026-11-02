@@ -15,4 +15,4 @@ Client IDs/secrets in the cleaned configuration use `OAUTH_CLIENT_ID` and `OAUTH
 
 A commented token-dumping demonstration was removed from the login example; it was not an active endpoint. Do not print bearer tokens to logs. These demos are not a security audit or production-ready authorization architecture.
 
-The old React/Vite counter starter named `pkce-demo-project` was excluded because its source did not implement a PKCE client. Two separately referenced Git repositories were unavailable; see [cleanup notes](../docs/cleanup.md).
+The old React/Vite counter starter named `pkce-demo-project` was excluded because its source did not implement a PKCE client. Earlier Git-link placeholders are not required modules of this collection. The separately maintained [design-patterns-java](https://github.com/Proggertopper/design-patterns-java) and [Taco Cloud](https://github.com/Proggertopper/taco-cloud-spring-boot) projects should be opened in their own repositories; see [cleanup notes](../docs/cleanup.md).

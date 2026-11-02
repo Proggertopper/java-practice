@@ -1,6 +1,6 @@
 # Validation of the cleaned source tree
 
-Checks performed with **OpenJDK 17.0.20** on the prepared working-tree copy. Compiler outputs and temporary harness files are not shipped in the repository.
+The compilation checks below were repeated with **OpenJDK 17.0.20** against the retained Java Core sources in snapshot `4d801e7` while updating this documentation. The runtime smoke checks were performed during the earlier cleanup on unchanged copies of those example sources. Compiler outputs and temporary harness files are not shipped in the repository.
 
 ## Compilation
 
@@ -21,11 +21,10 @@ Checks performed with **OpenJDK 17.0.20** on the prepared working-tree copy. Com
 | `java-core/book-exercises/project09/src` | 2 | Compiled |
 | `java-core/book-exercises/project10/src` | 2 | Compiled |
 | `java-core/book-exercises/project11/src` | 5 | Compiled |
-| `javarush/exercises/src` | 493 | Compiled |
 
 Every source set was compiled separately with UTF-8 encoding and its own output folder. No broad single-source-root build was attempted for the whole repository.
 
-`task1701` originally prevented compilation because `NoteThread` was absent. The original source was moved to `archive/incomplete-javarush`; it remains incomplete and is not part of the passing exercise source set.
+`archive/incomplete-javarush` retains one unfinished `task1701` fragment that references a missing `NoteThread`. It is not included in the checked Java Core source sets. The full JavaRush collection and its former compilation result are outside the current repository's scope; see [JavaRushTasks](https://github.com/Proggertopper/JavaRushTasks).
 
 ## Limited runtime checks
 
@@ -35,10 +34,10 @@ Every source set was compiled separately with UTF-8 encoding and its own output 
 
 ## Structural checks
 
-- All 49 original XML/POM files in the cleaned set parsed as well-formed XML; that does not validate Spring namespace semantics or Maven dependency resolution.
-- The source mapping checked that Java files from both inputs were either retained or represented by an exact duplicate; the one distinct legacy source variant is retained as a text reference.
+- All 46 XML/POM files remaining in snapshot `4d801e7` parsed as well-formed XML; that does not validate Spring namespace semantics or Maven dependency resolution.
+- The initial cleanup accounted for Java files from both original inputs. A later deduplication removed the full JavaRush tree and two old Taco Cloud copies; [cleanup notes](cleanup.md) distinguish the historical and current layouts. One differing old source variant remains as a text reference.
 - Reviewed application credential assignments were replaced with environment placeholders or local-only markers. This was a targeted hygiene review, **not a comprehensive security audit**.
 
 ## Not verified
 
-Spring/Maven builds, JDK 21/24 projects, OAuth2 flows, Kafka delivery, MySQL/PostgreSQL behavior, servlet-container deployment, JavaRush game-engine execution, all historical archive fragments and the complete JUnit/Mockito suite were not run. Compilation alone does not prove a course solution is logically correct or accepted by a platform validator.
+Spring/Maven builds, JDK 21/24 projects, OAuth2 flows, Kafka delivery, MySQL/PostgreSQL behavior, servlet-container deployment, historical archive fragments and the complete JUnit/Mockito suite were not run. Compilation alone does not prove an exercise is logically correct.

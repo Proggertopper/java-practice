@@ -1,4 +1,14 @@
-# Cleanup and source provenance
+# Repository scope and cleanup history
+
+## Current scope
+
+At snapshot `4d801e7`, the retained tree contains **217 Java source files**, not 776. The full JavaRush collection is maintained in [JavaRushTasks](https://github.com/Proggertopper/JavaRushTasks). The standalone Taco Cloud application is maintained in [taco-cloud-spring-boot](https://github.com/Proggertopper/taco-cloud-spring-boot), and design-pattern examples are maintained in [design-patterns-java](https://github.com/Proggertopper/design-patterns-java).
+
+The `javarush/` directory and the full `archive/taco-cloud-jdbc-legacy` and `archive/taco-cloud-messaging` copies were removed here after cross-repository comparison. All 507 Java files in the removed JavaRush tree were exact duplicates of files in JavaRushTasks.
+
+Small source-only starters, a four-file early Taco Cloud fragment, one differing old interface as text, and the incomplete `task1701` fragment remain in [archive](../archive/README.md). They are not full runnable copies of those external projects.
+
+The sections below record the **historical initial cleanup**, not the current repository layout or validation scope.
 
 ## Inputs
 
@@ -7,14 +17,14 @@
 
 All Java source files from those two supplied inputs were accounted for before sanitization. Exact duplicate copies were represented once; a distinct legacy source variant was retained as a text reference. No completed exercise logic was rewritten to make it appear correct.
 
-The cleaned tree contains **776 `.java` files**, including historical, starter and incomplete examples. That is a file count, not the number of completed tasks.
+The initial combined tree contained **776 `.java` files**, including historical, starter and incomplete examples. That historical file count is not the number of completed tasks or the current repository size.
 
-## Main moves
+## Historical initial moves
 
 | Original location | Cleaned location |
 | --- | --- |
-| Uploaded `JavaRushTasks/javarush/.../src/com/javarush/task` | `javarush/exercises/src/com/javarush/task` |
-| Uploaded mini-games | `javarush/games/src/com/javarush/games` |
+| Uploaded JavaRush exercises | Initially included here; now maintained in the separate JavaRushTasks repository |
+| Uploaded JavaRush mini-games | Initially included here; now maintained in the separate JavaRushTasks repository |
 | Uploaded `IdeaProjects/project1` … `project11` | `java-core/book-exercises/project01` … `project11` |
 | `javarushTrainings/javarushTrain` | `java-core/collections-and-concurrency` |
 | `IdeaProjects/IdeaProjects/codeForces` | `java-core/streams` |
@@ -31,15 +41,15 @@ The cleaned tree contains **776 `.java` files**, including historical, starter a
 
 Original Java package declarations and internal project resource layouts were kept. The outer duplicate `IdeaProjects/IdeaProjects` structure was not retained. This was selective consolidation, not deletion of all files under that path.
 
-## Not included in the clean tree
+## Excluded during initial cleanup
 
 - SDK installations, nested `.git` directories, plugin account avatars/logs and local Tomcat server configuration.
-- The external `game-engine.jar`; game sources remain, with their dependency requirement documented.
+- The external `game-engine.jar`; the game sources now live in the separate JavaRushTasks repository.
 - The default React/Vite counter starter named `pkce-demo-project`; it did not contain a PKCE implementation.
 - Git-only placeholder entries for `AllDesignPatternsJava` and `TacoCloud2Parts/taco_cloud2`: **their referenced source repositories were not supplied**. No code was recovered or invented for them.
 - Generic root test notes without a clear source dependency.
 
-The `JavaRushTasks` Git-link problem is resolved in this package by including the recovered files directly, without Git metadata. The other two missing Git links are documented rather than advertised as working modules.
+The initial JavaRushTasks Git-link problem was resolved by recovering its files from the uploaded archive. After deduplication, that full collection is no longer part of this repository. The separate design-pattern and Taco Cloud repositories are linked above rather than included as unresolved Git-link entries.
 
 ## Configuration edits
 
@@ -48,4 +58,4 @@ The `JavaRushTasks` Git-link problem is resolved in this package by including th
 - Removed a **commented**, non-active token-dumping example from the login controller.
 - Moved the incomplete `task1701` source to `archive/incomplete-javarush`; no replacement `NoteThread` was invented.
 
-No code was committed or pushed to GitHub. No files in the owner's original Windows folder were touched. The download is a new working-tree copy; it does not replace or contain their Git history.
+The original cleanup was prepared in a separate working-tree copy without modifying the owner's Windows source folder. The owner subsequently published it and removed duplicated sections. Credential cleanup in current files does not erase previously committed values; real/reused credentials still require rotation.

@@ -1,6 +1,6 @@
 # Java Practice
 
-My Java learning collection: core-language exercises, JavaRush practice, Spring experiments, OAuth2 examples, messaging and testing.
+My Java learning collection: core-language exercises, Spring experiments, OAuth2 examples, messaging and testing.
 
 The repository records learning progress rather than one finished application. Small console exercises sit alongside independent Maven projects; earlier and incomplete experiments are kept in [`archive/`](archive/) instead of being presented as complete features.
 
@@ -9,13 +9,23 @@ The repository records learning progress rather than one finished application. S
 | Section | Contents | Start here |
 | --- | --- | --- |
 | **Java Core** | OOP, interfaces, generics, annotations, threads, synchronization, collections, streams, I/O and sockets | [`java-core/`](java-core/README.md) |
-| **JavaRush** | Course exercises with original package/task names, plus separate mini-game sources | [`javarush/`](javarush/README.md) |
 | **Spring fundamentals** | XML and Java configuration, DI, lifecycle examples, AOP, JDBC, ORM and MVC | [`spring/`](spring/README.md) |
 | **Spring Security / OAuth2** | Authorization-server, OAuth2-client, login and client-credentials experiments | [`spring-security/`](spring-security/README.md) |
 | **Kafka / messaging** | Producer/consumer and Spring Cloud Stream function examples | [`messaging/kafka/`](messaging/kafka/README.md) |
 | **Testing** | JUnit 5 and Mockito practice | [`testing/junit5-mockito/`](testing/junit5-mockito/README.md) |
 | **PostgreSQL setup** | Spring Boot / Compose configuration experiment | [`persistence/postgres-spring-boot/`](persistence/postgres-spring-boot/README.md) |
-| **Earlier work** | Legacy Taco Cloud variants, starters, incomplete sources and a preserved alternative file | [`archive/`](archive/README.md) |
+| **Earlier work** | Small starters, incomplete sources and a preserved reference variant | [`archive/`](archive/README.md) |
+
+## Related repositories
+
+Course solutions and standalone applications are maintained separately instead of being copied into this collection:
+
+- [JavaRushTasks](https://github.com/Proggertopper/JavaRushTasks) — JavaRush exercises and mini-games.
+- [taco-cloud-spring-boot](https://github.com/Proggertopper/taco-cloud-spring-boot) — the standalone Taco Cloud learning application.
+- [design-patterns-java](https://github.com/Proggertopper/design-patterns-java) — design-pattern examples.
+- [sql-practice](https://github.com/Proggertopper/sql-practice) — SQL schemas, exercises and queries.
+
+The small incomplete fragments retained in `archive/` are not additional copies of those full projects.
 
 ## Selected examples
 
@@ -58,17 +68,16 @@ Spring database projects need a matching local database/schema. OAuth2 and Kafka
 ## Checked status
 
 - **15 Java Core source sets** compiled separately with JDK 17.
-- **493 JavaRush exercise source files** compiled together with JDK 17 after one incomplete task was isolated in `archive/`.
 - Eight smoke assertions passed for the collection helper methods; the counter and future examples were also executed.
-- Spring/OAuth2/Kafka integration, JavaRush game-engine examples and the entire JUnit/Mockito suite were **not** executed as part of cleanup.
+- Spring/OAuth2/Kafka integration and the entire JUnit/Mockito suite were **not** executed as part of cleanup.
 
-These checks establish a limited baseline, not correctness of every exercise or independent completion of every task. See [validation details](docs/validation.md).
+These checks establish a limited baseline, not correctness of every exercise or independent completion of every task. They concern the retained examples, not the separate JavaRush repository. See [validation details](docs/validation.md).
 
 ## Learning notes and provenance
 
 The material comes from my learning projects and course/book exercises. Original package names, task IDs, comments and algorithm implementations are largely preserved. Course-provided scaffolding and exercise text remain attributable to their original authors; this repository is not an official answer collection or an endorsement by a course provider.
 
-Repository organization, credential placeholders and documentation were prepared with AI assistance. Earlier copies were consolidated only after comparison; a differing `OrderRepository.java` was retained as a reference rather than overwritten. See [cleanup and source mapping](docs/cleanup.md).
+Repository organization, credential placeholders and documentation were prepared with AI assistance. Duplicate JavaRush sources and two full legacy Taco Cloud copies were subsequently removed from this collection. A differing old `OrderRepository.java` remains as a text reference in `archive/`, not a runnable duplicate project. See [cleanup and source mapping](docs/cleanup.md).
 
 ## Adding new practice
 
