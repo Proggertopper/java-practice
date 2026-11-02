@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://apache.org">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.springcore</groupId>
+  <artifactId>springjavaconfig</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <name>springjavaconfig</name>
+  <url>http://example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Устанавливаем целевую версию Java 21, так как вы запускаете проект на JDK 21 -->
+    <maven.compiler.release>21</maven.compiler.release>
+    <!-- Обновляем Spring до стабильной версии с полной поддержкой Java 21 -->
+    <springframework.version>6.1.10</springframework.version>
+  </properties>
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.11.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${springframework.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${springframework.version}</version>
+    </dependency>
+    
+    <!-- Заменяем старый javax.annotation на современный jakarta.annotation для Spring 6 -->
+    <dependency>
+      <groupId>jakarta.annotation</groupId>
+      <artifactId>jakarta.annotation-api</artifactId>
+      <version>2.1.1</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <!-- Обновляем версию плагина компилятора для корректной работы с Java 21 -->
+        <version>3.13.0</version>
+        <configuration>
+          <!-- Удалены конфликтующие теги source/target 1.8, плагин автоматически возьмет 'release' из свойств -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+

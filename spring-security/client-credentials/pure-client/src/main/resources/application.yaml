@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: pure-client
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak-client:
+            client-id: ${OAUTH_CLIENT_ID}
+            client-secret: ${OAUTH_CLIENT_SECRET}
+            authorization-grant-type: client_credentials
+            scope: openid
+        provider:
+          keycloak-client:
+            token-uri: http://localhost:8181/realms/oauth2-demos/protocol/openid-connect/token
+
+service2:
+  uri: http://localhost:8082
+
+server:
+  port: 8081

@@ -1,0 +1,38 @@
+# IDE metadata and local SDKs
+.idea/
+.vscode/
+.metadata/
+.settings/
+*.iml
+.classpath
+.project
+sdk/
+jdk*/
+.git-backup*/
+
+# Generated output
+out/
+.practice-out/
+target/
+build/
+bin/
+.gradle/
+__pycache__/
+node_modules/
+logs/
+*.class
+*.log
+*.log.*
+
+# Local credentials / overrides
+.env
+.env.*
+!.env.example
+application-local.properties
+application-local.yml
+application-local.yaml
+database-local.properties
+
+# OS metadata
+.DS_Store
+Thumbs.db

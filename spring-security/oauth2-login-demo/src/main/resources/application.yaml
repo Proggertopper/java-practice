@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: demo
+  security:
+    oauth2:
+      client:
+        registration:
+          oauth2-authorization-code-flow:
+            client-id: ${OAUTH_CLIENT_ID}
+            client-secret: ${OAUTH_CLIENT_SECRET}
+            scope:
+              - openid
+              - profile
+              - email
+              - roles
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/oauth2-authorization-code-flow
+            provider: keycloak-provider
+
+        provider:
+          keycloak-provider:
+            issuer-uri: http://127.0.0.1:8181/realms/oauth2-demos
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG

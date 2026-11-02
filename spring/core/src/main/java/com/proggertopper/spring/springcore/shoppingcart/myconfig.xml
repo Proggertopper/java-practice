@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+           
+       <bean name = "item" class = "com.proggertopper.spring.springcore.shoppingcart.Item" p:id="4" p:price ="234" p:name="fruit" p:quantity = "20">
+       </bean>
+       
+       <bean name = "item2" class = "com.proggertopper.spring.springcore.shoppingcart.Item" p:id="5" p:price ="236" p:name="fruit" p:quantity = "2">
+       </bean>
+       
+       <bean name="shoppingcart" class = "com.proggertopper.spring.springcore.shoppingcart.ShoppingCart">
+       		<property name="items">
+       			<list>
+       				<ref bean="item"></ref>
+       				<ref bean="item2"></ref>
+       			</list>
+       		</property>
+       </bean>
+       			
+        
+
+</beans>

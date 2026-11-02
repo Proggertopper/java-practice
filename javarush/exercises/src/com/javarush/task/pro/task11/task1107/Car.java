@@ -1,0 +1,24 @@
+package com.javarush.task.pro.task11.task1107;
+
+/* 
+Двигатель — сердце автомобиля
+*/
+
+public class Car {
+
+    public static void main(String[] args) {
+        Engine engine = new Engine();
+    }
+
+     static class Engine{
+        private boolean isRunning ;
+
+        public void start(){
+            isRunning = true;
+        }
+        public void stop(){
+            isRunning = false;
+        }
+    }
+
+}
