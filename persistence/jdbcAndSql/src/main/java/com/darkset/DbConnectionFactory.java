@@ -29,7 +29,9 @@ public class DbConnectionFactory {
 //         list.stream().forEach(System.out::println);
 //        System.out.println(countCustomers());
         //getFullNameAndCityWithNull();
-        numberWithNull();
+        //numberWithNull();
+        //addAdditionalCategory();
+        makeLocalDate();
     }
 
     public static Connection getConnection() throws SQLException{
@@ -127,6 +129,37 @@ public class DbConnectionFactory {
             metaData.getColumnName(1);
             metaData.getColumnClassName(1);
         }
+    }
+
+    public static void addAdditionalCategory() throws SQLException{
+        try(Connection connection = getConnection()){
+            Statement statement = connection.createStatement();
+            //int count  = statement.executeUpdate("alter table categories add column JDBC_TEST_CATEGORY varchar(100)"); не тот запрос
+            int count = statement.executeUpdate("insert into categories(name) values ('JDBC_TEST_CATEGORY')");
+            int count2 = statement.executeUpdate("update categories(name) values ('JDBC_TEST_CATEGORY_UPDATED')");
+            int count3 = statement.executeUpdate("delete from categories where name ='JDBC_TEST_CATEGORY'");
+            System.out.println("Добавлено строк "+ count);
+
+            boolean hasResults = statement.execute("SELECT COUNT(*) AS total FROM products");
+            if(hasResults){
+                ResultSet results = statement.getResultSet();
+            }
+            else
+                statement.getUpdateCount();
+
+            boolean hasResults2 = statement.execute("UPDATE categories\n" +
+                    "SET name = 'JDBC_TEST_CATEGORY'\n" +
+                    "WHERE name = 'CATEGORY_THAT_DOES_NOT_EXIST';");
+            if(!hasResults2){
+                statement.getUpdateCount();
+            }
+            else
+                statement.getResultSet();
+        }
+    }
+
+    public void executeAndPrintSQLQuery() {
+
     }
 
 
