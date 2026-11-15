@@ -1,5 +1,6 @@
 package com.darkset.data_api.controllers;
 
+import com.darkset.data_api.dto.TransformRequest;
 import com.darkset.data_api.dto.TransformResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -17,11 +18,14 @@ public class ServiceBController {
     private String tokenServiceB;
 
     @PostMapping("/api/transform")
-    public ResponseEntity<TransformResponse> transform(@RequestBody String text , @RequestHeader("X-Internal-Token") String token){
+    public ResponseEntity<TransformResponse> transform(@RequestBody TransformRequest request, @RequestHeader("X-Internal-Token") String token){
         if(!tokenServiceB.equals(token) || token.isEmpty()){
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-        String result = text.toUpperCase().concat(" transformed text");
+        if(request.text() == null){
+            return ResponseEntity.badRequest().build();
+        }
+        String result = request.text().toUpperCase().concat(" transformed text");
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(new TransformResponse(result));
     }
 }
