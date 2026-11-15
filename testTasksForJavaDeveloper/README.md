@@ -11,8 +11,10 @@ Communication with two apps(ServiceA and ServiceB)
 ## Quickstart with Docker Compose
 
 1. **Clone github repo**
-   ```bash git clone https://github.com 
-        cd ```
+   ```bash
+      git clone https://github.com/Proggertopper/java-practice/tree/main/testTasksForJavaDeveloper
+      cd testTasksForJavaDeveloper
+   ```
    
 2. **Enter variables for .env file**
    Create .env file in the root of project or copy of .env-example
