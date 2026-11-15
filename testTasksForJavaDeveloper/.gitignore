@@ -1,0 +1,28 @@
+﻿# Файлы с секретами и переменными окружения
+.env
+.env.*
+*.env
+!.env.example
+
+# Папки сборки (Maven и Gradle)
+target/
+build/
+.gradle/
+out/
+
+# Настройки IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Скомпилированные файлы Java и логи
+*.class
+*.jar
+*.war
+*.log
+
+# Системные файлы Windows / macOS
+Thumbs.db
+Desktop.ini
+.DS_Store

@@ -1,0 +1,45 @@
+services:
+  postgres:
+    container_name: postgres-task
+    image: postgres:18
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_HOST_AUTH_METHOD: scram-sha-256
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    networks:
+      - app-network
+
+  auth-api:
+    build: ./auth-api
+    env_file:
+      .env
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+
+  data-api:
+    build: ./data-api
+    env_file:
+      .env
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge
