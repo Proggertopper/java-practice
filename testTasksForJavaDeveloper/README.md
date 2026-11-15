@@ -12,8 +12,8 @@ Communication with two apps(ServiceA and ServiceB)
 
 1. **Clone github repo**
    ```bash
-      git clone https://github.com/Proggertopper/java-practice/tree/main/testTasksForJavaDeveloper
-      cd testTasksForJavaDeveloper
+      git clone https://github.com/Proggertopper/java-practice.git
+      cd java-practice/testTasksForJavaDeveloper
    ```
    
 2. **Enter variables for .env file**
