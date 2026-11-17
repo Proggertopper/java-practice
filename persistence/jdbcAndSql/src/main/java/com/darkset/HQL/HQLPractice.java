@@ -27,7 +27,7 @@ public class HQLPractice {
 //            });
 //        findByNameContaining("Comp%");
 //        count();
-        printOnly2PagesCategories();
+        printOnly2PagesCategoriesAndOtherPractices();
     }
 
     public static void findByNameContaining(String text){
