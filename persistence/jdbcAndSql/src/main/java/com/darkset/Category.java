@@ -2,6 +2,10 @@ package com.darkset;
 
 import jakarta.persistence.*;
 
+@NamedQueries({
+        @NamedQuery(name = "Category_FindByID" , query = "from Category where id = :id")
+})
+
 @Entity
 @Table(name = "categories")
 public class Category {
