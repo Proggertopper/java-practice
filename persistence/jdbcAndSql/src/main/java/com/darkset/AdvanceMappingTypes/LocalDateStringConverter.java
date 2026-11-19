@@ -1,0 +1,20 @@
+package com.darkset.AdvanceMappingTypes;
+
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Converter;
+
+import java.time.LocalDate;
+
+@Converter(autoApply = true)
+public class LocalDateStringConverter implements AttributeConverter<LocalDate , String> {
+    @Override
+    public String convertToDatabaseColumn(LocalDate date) {
+        return date == null ? null : date.toString();
+    }
+
+    @Override
+    public LocalDate convertToEntityAttribute(String dbData) {
+        return (dbData == null || dbData.isBlank()) ? null:LocalDate.parse(dbData);
+    }
+}
